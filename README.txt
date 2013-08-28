@@ -57,6 +57,12 @@ Installation
     # Location of phantomjs executable
     PHANTOMJS_EXECUTABLE = "/path/to/phantomjs"
 
+8. (Optional) specify a custom javascript file (for per-project page
+   sizes, margins, headers, footers, etc)
+
+    # Location of phantomjs javascript
+    PHANTOMJS_SCRIPT = "/path/to/script.js"
+
 
 That's it, now all it takes to generate a PDF version of your page is to add:
 ?format=pdf to your urls

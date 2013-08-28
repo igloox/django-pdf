@@ -12,6 +12,7 @@ REQUEST_FORMAT_NAME = getattr(settings, 'REQUEST_FORMAT_NAME', 'format')
 REQUEST_FORMAT_PDF_VALUE = getattr(settings, 'REQUEST_FORMAT_PDF_VALUE', 'pdf')
 TEMPLATE_PDF_CHECK = getattr(settings, 'TEMPLATE_PDF_CHECK', 'DJANGO_PDF_OUTPUT')
 PHANTOMJS_EXECUTABLE = getattr(settings, 'PHANTOMJS_EXECUTABLE', 'phantomjs')
+PHANTOMJS_SCRIPT = getattr(settings, 'PHANTOMJS_SCRIPT', os.path.dirname(__file__)+"/html2pdf.js")
 
 def transform_to_pdf(response, host='', filename='page.pdf'):
     """
@@ -31,7 +32,7 @@ def transform_to_pdf(response, host='', filename='page.pdf'):
     
     # construct parameters to our phantom instance
     args = [PHANTOMJS_EXECUTABLE,
-            os.path.dirname(__file__)+"/html2pdf.js",
+            PHANTOMJS_SCRIPT,
             input_file.name,
             input_file.name+'.pdf']
     
